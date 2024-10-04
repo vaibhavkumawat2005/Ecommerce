@@ -1,4 +1,4 @@
-// Base / Parent product class
+
 class Product {
   constructor(id, name, price, imageUrl) {
     // abstract
@@ -11,7 +11,7 @@ class Product {
     this.imageUrl = imageUrl;
   }
 
-  // abstract method
+
   displayProduct() {
     throw new Error("Abstract method must be implemented");
   }
@@ -38,7 +38,7 @@ class PhysicalProduct extends Product {
   }
 }
 
-// DigitalProduct inherited from Products
+
 class DigitalProduct extends Product {
   constructor(id, name, price, fileSize, imageUrl) {
     super(id, name, price, imageUrl);
@@ -58,7 +58,7 @@ class DigitalProduct extends Product {
   }
 }
 
-// cartItem class to to represent items in the cart
+
 class CartItem {
   constructor(product, quantity = 1) {
     this.product = product;
@@ -73,7 +73,7 @@ class CartItem {
     return this.product.price * this.quantity;
   }
 
-  // factory
+ 
   displayCartItem() {
     return `<li class="cart-item">
     <img src ="${this.product.imageUrl}" alt="${
@@ -86,10 +86,10 @@ class CartItem {
   }
 }
 
-// cart class to manage cart items
+
 class Cart {
   constructor() {
-    this.items = []; // empty
+    this.items = []; 
   }
   addProduct(product) {
     const existingItem = this.items.find(
@@ -122,13 +122,13 @@ class Cart {
     this.displayCart();
   }
 
-  // factory
+  
   getTotal() {
     return this.items.reduce((total, item) => total + item.getTotalPrice(), 0);
   }
 }
 
-// Shop class to manage overall shopping
+
 class Shop {
   constructor(products) {
     this.products = products;
